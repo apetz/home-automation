@@ -72,6 +72,7 @@ sub logDataToDropbox {
     my $record = "$rainfall{date},$rainfall{time},$rainfall{\"24 hr.\"},$rainfall{\"Additional Info\"},$rainfall{\"Gauge Status\"}";
     print "recording: $record\n";
     `echo \"$record\" >> ~/Dropbox/Public/db/rainfall.db`;
+    `echo \"$record\" >> ~/www/home/db/rainfall.db`;
     $record = "";
     my $i=0;
     for ($i=0; $i<$#wTableIndex;$i++) {
@@ -81,4 +82,5 @@ sub logDataToDropbox {
     print "inserting $wTableIndex[$i] : $weather{$wTableIndex[$i]}\n";
     $record = $record . "$weather{$wTableIndex[$i]}";
     `echo \"$record\" >> ~/Dropbox/Public/db/weather.db`;
+    `echo \"$record\" >> ~/www/home/db/weather.db`;
 }
